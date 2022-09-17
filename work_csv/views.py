@@ -2,8 +2,8 @@ from operator import index
 from os import sep
 from django.shortcuts import redirect, render
 from sqlalchemy import column
-from work_csv.models import work_csv
-from media.data_csv import *
+# from work_csv.models import work_csv
+# from media.data_csv import *
 import pandas as pd
 import sys
 
