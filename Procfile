@@ -1,1 +1,1 @@
-web: gunicorn HustledVerse.wsgi 
+web: gunicorn hustledverse.wsgi 
