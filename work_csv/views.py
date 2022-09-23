@@ -70,6 +70,7 @@ def upload_csv(request):
                 'headdata2':headdata2,'headdata3':headdata3,'headdata4':headdata4}
 
         return render(request,"work_csv.html",param)
+        # return render(request,"main.html",param)
     else:
         redirect('/')
 
