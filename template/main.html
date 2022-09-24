@@ -40,8 +40,9 @@ p{text-align:center;}
   color:#333;
   
 }
+
   </style>
-  <body>
+  <body id="body">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-3 col-12 border border-right border-light" style="height: 100vh; " >
@@ -64,15 +65,21 @@ p{text-align:center;}
 
               <div class="col-12">
                 <small>Here you can drop the attributes</small>
-                <div id="dropzone" class="border border-light"></div>
-                <button class="btn btn-primary pull-right" id="show_graph">SHOW</button> 
+                <form action="#">
+                  <div id="dropzone" class="border border-light" style="overflow-y: scroll;"></div>
+                  <!-- onclick="get_stock('eq{{i.id}}','drawChart{{i.id}}()','a{{i.id}}')" -->
+                  <button class="btn btn-primary pull-right" type="button" id="show_graph" onclick="abc()">SHOW</button> 
+                </form>
+                
               </div>
 
             </div>
           </div>
+          <input type="text" class="" value="cool">
           <div class="row">
             <div class="col-12" style="height:50vh ;overflow-y: scroll; display: none;" id="graph">
               <canvas id="myChart"></canvas>
+              
             </div>
           </div>
           
@@ -117,6 +124,11 @@ var myChart = new Chart(ctx, {
       $("#show_graph").click(function () {
       $("#graph").show("slow");
       });
+      if(screen.width<1026){//get the screen width
+   //get element form document
+   var elem=document.getElementById('#body');
+   elem.style.display == 'none'//toggle visibility
+}
       </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -131,7 +143,8 @@ var myChart = new Chart(ctx, {
         hoverClass: 'hover',
         accept: ":not(.ui-sortable-helper)", 
         drop: function (e, ui) {
-          var $el = $('<div class="drop-item"><details><summary>' + ui.draggable.text() + '</summary><div><label>More Data</label><input type="text" /></div></details></div>');
+          // var $el = $('<div class="drop-item"><details><summary>' + ui.draggable.text() + '</summary><div><label>More Data</label><input type="text" /></div></details></div>');
+          var $el = $('<input type="text" class="drop-item" value="' + ui.draggable.text() + '"/>');
           $el.append($('<button type="button" class="btn btn-default btn-xs remove"><span class="fa-solid fa-trash text-white "></span></button>').click(function () { $(this).parent().detach(); }));
           $(this).append($el);
         }
