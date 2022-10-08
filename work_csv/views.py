@@ -12,7 +12,8 @@ import sys
 
 
 def home(request):
-    return render(request,"index.html")
+    # return render(request,"index1.html")
+    return render(request,"upload.html")
 
 def upload_csv(request):
     if request.method=='POST' and request.FILES['mycsv']:

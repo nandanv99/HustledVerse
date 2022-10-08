@@ -1,0 +1,220 @@
+body {
+    /* background-color: #060f1f; */
+    /* background: linear-gradient(270deg , rgb(146, 146, 247), rgb(190, 156, 236), rgb(3, 3, 43) ) */
+    background: linear-gradient(0.25turn, #030917, #313f64, #030917);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* background-color: #030917; */
+}
+
+.navv:hover {
+    color: #4b557d;
+
+}
+
+.boxdad {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.card {
+    background-color: transparent;
+    cursor: pointer;
+    border-color: white;
+    justify-content: center center;
+}
+
+.card:hover {
+
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 0.4s;
+
+}
+
+.card:hover .content {
+    transform: rotateY(180deg);
+    transition: transform 1.2s;
+}
+
+.front,
+.back {
+
+    backface-visibility: hidden;
+
+}
+
+.back {
+
+    text-align: center center;
+    transform: rotateY(180deg);
+}
+
+.card-body {
+    text-align: center;
+}
+
+.content {
+    transition: transform 1s;
+    transform-style: preserve-3d;
+
+}
+
+.bttn {
+    background-color: transparent;
+    border: white;
+    font-size: 25px;
+    border-style: solid;
+
+}
+
+
+.bttn:hover {
+    background-color: #1ebf9f !important;
+}
+
+
+.HEAD {
+    font-size: 90px;
+    color: rgb(255, 255, 255);
+
+}
+
+.HEAD:hover {
+    cursor: pointer;
+}
+
+.lgnbn {
+    font-size: 1.6em;
+    cursor: pointer;
+
+
+}
+
+.lgnbn:hover {
+    font-size: 1.65em;
+    color: #4b557d;
+}
+
+
+
+navbar-toggler {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: .5s ease-in-out;
+
+
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+
+
+}
+
+
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+    color: white !important;
+
+}
+
+.nav-item {
+    color: white !important;
+}
+
+
+.navbar-toggler span {
+    margin: 0;
+    padding: 0;
+}
+
+.toggler-icon {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #05ffff;
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .45s ease-in-out;
+
+}
+
+.middle-bar {
+    margin-top: 0px;
+
+}
+
+
+.navbar-toggler .top-bar {
+    margin-top: 0px;
+    transform: rotate(120deg);
+    opacity: 0;
+}
+
+.navbar-toggler .middle-bar {
+    opacity: 0;
+    filter: alpha(opacity=0);
+
+}
+
+.navbar-toggler .bottom-bar {
+    margin-top: 0px;
+    transform: rotate(-120deg);
+    opacity: 0;
+
+}
+
+/* when the navbar is collapsed */
+
+.navbar-toggler.collapsed .top-bar {
+    margin-top: -20px;
+    transform: rotate(0deg);
+
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+    filter: alpha(opacity=100);
+
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+    margin-top: 20px;
+    transform: rotate(0deg);
+
+}
+
+/* Color of  3 lines */
+
+.navbar-toggler.collapsed .toggler-icon {
+    /* background: linear-gradient( 263deg, rgb(247, 169, 169) 0%, rgba(0,212,255,1) 100% ); */
+
+    background: linear-gradient(263deg, #313f64, #596278);
+
+}
+
+
+
+
+
