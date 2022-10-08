@@ -10,6 +10,8 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  
+
 
 </head>
 <style>
@@ -86,6 +88,7 @@ h1 {
   opacity: 0.55;
 }</style>
 
+
 <body >
   <div class="wrapper">
   <div class="container">
@@ -94,11 +97,15 @@ h1 {
       <div class="border-container">
         <form action="/upload_csv" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+            <!-- <label id="file-browser" for="files">browse</label>  -->
+            <p>Drag and drop files here, or 
+              <label id="file-browser" for="files">browse</label> 
+              your computer.</p>
+              <label class="m-2" style="font-style:italic;" for="files"></label>
                 <input class="text-center" id="files" type="file" name="mycsv" style="display:none;">
-                <!-- <p>Drag and drop files here, or 
-                    <a href="#" for="files" id="file-browser">browse</a> your computer.</p> -->
-                <p>Drag and drop files here, or 
-                    <label id="file-browser" for="files">browse</label> your computer.</p>
+                
+                
+                
                 <!-- <label for="files">Click me to upload image</label> -->
 
             
@@ -115,24 +122,22 @@ h1 {
     </div>
   </div>
 </div>
+
   <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"ntegrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
 </body>
 <script>
-    $("#file-upload").css("opacity", "0");
-
-$("#file-browser").click(function(e) {
-  e.preventDefault();
-  $("#file-upload").trigger("click");
-});
-
-
+  $('#files').change(function() {
+    var i = $(this).prev('label').clone();
+    var file = $('#files')[0].files[0].name;
+    $(this).prev('label').text(file);
+  });
+  
 </script>
 
 </html>
