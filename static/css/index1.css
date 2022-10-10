@@ -28,7 +28,7 @@ body {
 .card {
     background-color: transparent;
     cursor: pointer;
-    border-color: white;
+    /* border-color: white; */
     justify-content: center center;
 }
 
@@ -42,13 +42,12 @@ body {
 }
 
 .card:hover .content {
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
     transition: transform 1.2s;
 }
 
 .front,
 .back {
-
     backface-visibility: hidden;
 
 }
@@ -78,13 +77,9 @@ body {
 }
 
 
-.bttn:hover {
-    background-color: #1ebf9f !important;
-}
-
 
 .HEAD {
-    font-size: 90px;
+    font-size: 50px;
     color: rgb(255, 255, 255);
 
 }

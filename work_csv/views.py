@@ -12,7 +12,9 @@ import sys
 
 
 def home(request):
-    # return render(request,"index1.html")
+    return render(request,"index1.html")
+
+def open_csv(request):
     return render(request,"upload.html")
 
 def upload_csv(request):
