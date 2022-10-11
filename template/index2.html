@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Frontend Mentor | Four card feature section</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap"
+    rel="stylesheet">
+</head>
+<style>
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--veryLightGray);
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+h1:first-of-type {
+    font-weight: var(--weight1);
+    color: var(--varyDarkBlue);
+
+}
+
+h1:last-of-type {
+    color: var(--varyDarkBlue);
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.header {
+    text-align: center;
+    line-height: 0.8;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.header p {
+    margin: 0 auto;
+    line-height: 2;
+    color: var(--grayishBlue);
+}
+
+
+.box p {
+    color: var(--grayishBlue);
+}
+
+.box {
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;  
+}
+
+img {
+    float: right;
+    width: 74px;
+    height: 64px;
+}
+
+@media (max-width: 450px) {
+    .box {
+        height: 220px;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+    .box {
+        text-align: center;
+        height: 180px;
+    }
+}
+
+
+
+
+@media (min-width: 950px) {
+    .row1-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .row2-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-down {
+        position: relative;
+        top: 150px;
+    }
+    .box {
+        width: 20%;
+     
+    }
+    .header p {
+        width: 30%;
+    }
+    
+}
+.ml5 {
+    position: relative;
+    font-weight: 300;
+    font-size: 4.5em;
+    color: #402d2d;
+  }
+  
+  .ml5 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+    line-height: 1em;
+  }
+  
+  .ml5 .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background-color: #402d2d;
+    transform-origin: 0.5 0;
+  }
+  
+  .ml5 .ampersand {
+    font-family: Baskerville, serif;
+    font-style: italic;
+    font-weight: 400;
+    width: 1em;
+    margin-right: -0.1em;
+    margin-left: -0.1em;
+  }
+  
+  .ml5 .letters {
+    display: inline-block;
+    opacity: 0;
+  }
+</style>
+
+<body style="background: linear-gradient(0.25turn, #030917, #313f64, #030917);">
+  <div class="header mt-2 mb-0">
+    <!-- <h1 class="text-white" style="font-family:sans-serif;font-weight:900;">YOU.AI</h1> -->
+    <h2 class="ml5 text-center  m-3">
+        <!-- <span class="text-wrapper mb-2"> -->
+          <span class="line line1 m " style="background-color: white;"></span>
+          <span class="letters letters-left" style="color: white;font-weight: bold;" >YOU</span>
+          <span class="letters ampersand" style="font-size:small;color: white;">&#9673;</span>
+          <span class="letters letters-right" style="color: white;font-style: italic;">AI</span>
+          <!-- <span class="line line2 "></span> -->
+        </span>
+      </h2>
+  </div>
+  <div class="row1-container ">
+    <div class="box box-down cyan border border-light">
+        <a href="/open_csv" style="text-decoration:none;">
+      <h2 class="text-white text-center" style="font-family:'Times New Roman', Times, serif">CSV</h2>
+      <p style="margin-bottom:0px;">A comma-separated values file is a delimited text file that uses a comma to separate values.</p>
+      <img src="{% static 'img/3.svg' %}" alt=""/>
+    </a>
+    </div>
+
+    <div class="box red border border-light">
+        <a href="" style="text-decoration:none;">
+      <h2 class="text-white text-center" style="font-family:'Times New Roman', Times, serif">EXCEL</h2>
+      <p style="margin-bottom:0px;">In Microsoft Excel, workbooks are saved as Excel Workbooks (. xlsx) by default.</p>
+      <img src="{% static 'img/1.svg' %}" alt="">
+    </a>
+    </div>
+
+    <div class="box box-down blue border border-light">
+      <a href="" style="text-decoration:none;">
+      <h2 class="text-white text-center" style="font-family:'Times New Roman', Times, serif">OTHER</h2>
+      <p style="margin-bottom:0px;">In addition to or different from the one or ones that have already been mentioned.</p>
+      <img src="{% static 'img/2.svg' %}" alt="">
+      </a>
+    </div>
+  </div>
+  <div class="row2-container ">
+    <div class="box orange border border-light">
+      <h2 class="text-white" style="font-family:'Times New Roman', Times, serif">JSON</h2>
+      <p style="margin-bottom:0px;">JSON is a lightweight, text-based, language-independent data interchange format.</p>
+      <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+    </div>
+  </div>
+</body>
+<script>
+    anime.timeline({loop: 1})
+  .add({
+    targets: '.ml5 .line',
+    opacity: [0.5,1],
+    scaleX: [0, 1],
+    easing: "easeInOutExpo",
+    duration: 700
+  }).add({
+    targets: '.ml5 .line',
+    duration: 600,
+    easing: "easeOutExpo",
+    translateY: (el, i) => (-0.625 + 0.625*2*i) + "em"
+  }).add({
+    targets: '.ml5 .ampersand',
+    opacity: [0,1],
+    scaleY: [0.5, 1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5 .letters-left',
+    opacity: [0,1],
+    translateX: ["0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=300'
+  }).add({
+    targets: '.ml5 .letters-right',
+    opacity: [0,1],
+    translateX: ["-0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  });
+</script>
+
+</html>
