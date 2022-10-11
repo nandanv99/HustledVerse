@@ -19,6 +19,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
 
   </head>
@@ -178,16 +182,34 @@
                   </div>
               </div>
           </div> 
+          <div class="col-xl-6 col-12 border border-light p-2 mb-4 border-right-0" style="box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);">
+              <div class="card bg-transparent">
+                  <div class="card-header ">
+                      <h3 class="text-white" style="font-style:italic;">{{ col2_name }} &#38; {{ col4_name }}</h3>
+                  </div>
+                  <div class="card-block ">
+                      {% comment %} <div id="chart2"></div> {% endcomment %}
+                      {% comment %} <canvas id="myChart1" style="height:400px;width:550px;"></canvas> {% endcomment %}
+                      <div class="wrapper">
+                          <canvas id="myChart2" style="height:400px;width:550px;"></canvas>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+          <div class="col-xl-6 col-12 border border-light p-2 mb-4 " style="box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);">
+              <div class="card bg-transparent">
+                  <div class="card-header ">
+                      <h3 class="text-white">Profit Distribution</h3>
+                  </div>
+                  <div class="card-block ">
+                      <canvas id="chart" style="height:400px;width:550px;"></canvas>
+                  </div>
+              </div>
+          </div>
           
           <div class="col-xl-12 col-12 border border-light p-2 mt-5">
             <div class="card bg-transparent">
-                <!-- <div class="card-header">
-                    <h3 class="text-white">{{ col4_name }}</h3>
-                </div>
-                <div class="card-block ">
-                    <div id="chart3"></div>
-                </div> -->
-                <img src="https://i.ytimg.com/vi/8SSDgRKoetE/maxresdefault.jpg"  class="img-fluid" alt="...">
+                <img src="https://www.downloadclipart.net/large/python-transparent-background.png"  class="img-fluid" alt="...">
             </div>
           </div>
         </div>    
@@ -245,6 +267,208 @@ var myChart1 = new Chart(ctx, {
       maintainAspectRatio: false, 
     }
 });
+
+var data = {
+  labels: {{col3|safe}} ,
+  datasets: [{
+    label: "Profit & Months",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: {{col4|safe}},
+  }]
+};
+
+var options = {
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      stacked: true,
+      grid: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    },
+    x: {
+      grid: {
+        display: false
+      }
+    }
+  }
+};
+
+new Chart('chart', {
+  type: 'bar',
+  options: options,
+  data: data
+});
+
+
+
+
+
+
+var data = {
+    "datasets": [
+      {
+        "backgroundColor": "rgb(156, 39, 176)",
+        "borderColor": "rgb(156, 39, 176)",
+        "fill": false,
+        "data": {{col2|safe}},
+        "id": "amount",
+        "label": "{{col2_name}}",
+				"yAxisID":"left"
+      },
+      {
+        "backgroundColor": "rgb(39, 176, 200)",
+        "borderColor": "rgb(39, 176, 200)",
+        "fill": false,
+        "data": {{col4|safe}},
+        "id": "amount",
+        "label": "{{col4_name}}",
+				"yAxisID":"right"
+
+      }
+    ],
+    "labels": [
+      "2017-01-02",
+      "2017-04-02",
+      "2017-07-02",
+      "2017-09-02",
+      "2018-02-02",
+      "2018-07-02",
+      "2018-12-02",
+      "2019-3-02",
+      "2019-4-02",
+      "2019-8-02"
+    ]
+  };
+var options = {
+    "elements": {
+      "rectangle": {
+        "borderWidth": 2
+      }
+    },
+    "layout": {
+      "padding": 0
+    },
+    "legend": {
+      "display": true,
+      "labels": {
+        "boxWidth": 16
+      }
+    },
+    "maintainAspectRatio": false,
+    "responsive": true,
+    "scales": {
+      "xAxes": [
+        {
+          "gridLines": {
+            "display": false
+          },
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Date"
+          },
+          "stacked": false,
+          "ticks": {
+            "autoSkip": true,
+            "beginAtZero": true
+          },
+          "time": {
+            "tooltipFormat": "[Q]Q - YYYY",
+            "unit": "quarter"
+          },
+          "type": "time"
+        }
+      ],
+      "yAxes": [
+        {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Purchase amount (USD)"
+          },
+					"id": "left",
+          "stacked": false,
+          "ticks": {
+            "beginAtZero": true
+          }
+        },
+        {
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Purchase count"
+          },
+					"id": "right",
+					"position": "right",
+          "stacked": false,
+          "ticks": {
+            "beginAtZero": true
+          }
+        }
+      ]
+    },
+    "title": {
+      "display": false
+    },
+    "tooltips": {
+      "intersect": false,
+      "mode": "index",
+      "position": "nearest",
+      "callbacks": {}
+    }
+  }
+var type = "line";
+
+var myCharts = new Chart(document.getElementById("myChart2").getContext('2d'), {options, data, type});
+var myCharts2 = new Chart(document.getElementById("myChart2").getContext('2d'), {
+	options: {
+		...options,
+		scales: {
+			...options.scales,
+			yAxes: [
+					{
+						"scaleLabel": {
+							"display": true,
+							"labelString": "Purchase amount (USD)"
+						},
+						"id": "left",
+						"stacked": false,
+						"ticks": {
+							"beginAtZero": true,
+							suggestedMin: -200,
+							suggestedMax: 200
+						}
+					},
+					{
+						"scaleLabel": {
+							"display": true,
+							"labelString": "Purchase count"
+						},
+						"id": "right",
+						"position": "right",
+						"stacked": false,
+						"ticks": {
+							"beginAtZero": true,
+							suggestedMin: -2000,
+							suggestedMax: 2000
+						}
+					}
+			]
+		}
+	},
+	data,
+	type
+});
+
+
+
+
+
+
+
 
     </script>
     <script>
@@ -364,7 +588,8 @@ var myChart1 = new Chart(ctx, {
     easing: "easeOutExpo",
     duration: 600,
     offset: '-=600'
-  })
+  });
     </script>
+
   </body>
 </html>

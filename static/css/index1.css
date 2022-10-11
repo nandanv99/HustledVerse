@@ -30,6 +30,7 @@ body {
     cursor: pointer;
     /* border-color: white; */
     justify-content: center center;
+    border: none;
 }
 
 .card:hover {
