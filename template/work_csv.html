@@ -122,33 +122,33 @@
     <div class="table-responsive">
 
     
-      <table class="table bg-light w-100">
-        <thead class="thead-dark">
+      <table class="table  w-100 border border-light">
+        <thead class="">
           <tr>
             {% for item in head %}
-            <th scope="col">{{item}}</th>
+            <th scope="col" class="text-white">{{item}}</th>
             {% endfor %}
           </tr>
         </thead>
         <tbody>
           <tr>
             {% for user in headdata1 %}
-            <td>{{user}}</td>
+            <td class="text-white">{{user}}</td>
             {% endfor %}
           </tr>
           <tr>            
             {% for user in headdata2 %}
-            <td>{{user}}</td>
+            <td class="text-white">{{user}}</td>
             {% endfor %}
           </tr>
           <tr>            
             {% for user in headdata3 %}
-            <td>{{user}}</td>
+            <td class="text-white">{{user}}</td>
             {% endfor %}
           </tr>
           <tr>            
             {% for user in headdata4%}
-            <td>{{user}}</td>
+            <td class="text-white">{{user}}</td>
             {% endfor %}
           </tr>
         </tbody>
